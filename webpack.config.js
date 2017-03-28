@@ -2,11 +2,11 @@ var webpack = require('webpack');
 var CompressionPlugin = require('compression-webpack-plugin');
 
 const config = {
-  entry: './client/Index.jsx',
+  entry: './App.jsx',
   output: {
     filename: 'bundle.js',
     publicPath: '/public',
-    path: './public'
+    path: '/public'
   },
   module: {
     loaders: [
@@ -14,7 +14,7 @@ const config = {
         test: /\.jsx$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
-        query: {
+        options: {
           presets: ["react", "es2015"]
         }  
       }

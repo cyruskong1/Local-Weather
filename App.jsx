@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -54,8 +55,9 @@ export default class App extends React.Component {
           <h2 class="center-text content-title">WeatherLoc</h2>
           <h2 class="center-text content-title" id="currentLocation">Getting Location...</h2>
           <div class="content-body">
-          <p class="center-text" id="currentTemp">Getting Temperature...</p>
-          <p class="center-text" id="currentWeather">Getting Current Weather Conditions</p>
+            <p class="center-text" id="currentTemp">Getting Temperature...</p>
+            <p class="center-text" id="currentWeather">Getting Current Weather Conditions</p>
+          </div>
         </div>
       </div>
     )

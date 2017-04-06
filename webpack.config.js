@@ -6,7 +6,7 @@ const config = {
   output: {
     filename: 'bundle.js',
     publicPath: '/public',
-    path: '/public'
+    path: __dirname + '/public'
   },
   module: {
     loaders: [
@@ -14,31 +14,15 @@ const config = {
         test: /\.jsx$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
-        options: {
+        query: {
           presets: ["react", "es2015"]
         }  
       }
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8
-    })
-  ],
   resolve: {
     extensions: ['.js', '.jsx']
   }
-};
+}
 
 module.exports = config;

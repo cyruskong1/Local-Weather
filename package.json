@@ -18,7 +18,8 @@
     "url": "https://github.com/cyruskong1/Local-Weather/issues"
   },
   "homepage": "https://github.com/cyruskong1/Local-Weather#readme",
-   "dependencies": {
+  "dependencies": {
+    "jquery": "^3.2.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },

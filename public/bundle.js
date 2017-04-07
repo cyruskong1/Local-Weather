@@ -19906,7 +19906,9 @@ var App = function (_React$Component) {
         for (var key in weatherID) {
           if (currentWeatherID == key) {
             console.log('currentWeatherID', key, weatherID[key]);
-            (0, _jquery2.default)("#currentWeather").css('background-image', 'url(' + weatherID[key] + ')');
+            var img = document.createElement('IMG');
+            img.setAttribute('src', weatherID[key]);
+            document.getElementById('currentWeather').appendChild(img);
           }
         }
       });
@@ -19939,7 +19941,7 @@ var App = function (_React$Component) {
               { className: 'center-text', id: 'currentTemp' },
               'Getting Current Weather'
             ),
-            _react2.default.createElement('p', { className: 'center-text', id: 'currentWeather' })
+            _react2.default.createElement('div', { className: 'center-text', id: 'currentWeather' })
           )
         )
       );

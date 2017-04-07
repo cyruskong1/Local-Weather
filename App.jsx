@@ -81,7 +81,9 @@ export default class App extends React.Component {
     for(var key in weatherID) {
       if(currentWeatherID == key) {
         console.log('currentWeatherID', key, weatherID[key])
-        $("#currentWeather").css('background-image', 'url(' + weatherID[key] +')')
+        var img = document.createElement('IMG');
+        img.setAttribute('src', weatherID[key]);
+        document.getElementById('currentWeather').appendChild(img);
       }
     }
 
@@ -99,7 +101,7 @@ export default class App extends React.Component {
           <div className="content-body">
             <Clock />
             <p className="center-text" id="currentTemp">Getting Current Weather</p>
-            <p className="center-text" id="currentWeather"></p>
+            <div className="center-text" id="currentWeather"></div>
           </div>
         </div>
       </div>

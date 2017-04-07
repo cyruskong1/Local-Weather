@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Clock from './clock';
 
+
 export default class App extends React.Component {
   constructor(props) {
     super(props)
@@ -14,6 +15,8 @@ export default class App extends React.Component {
   }
  
   componentDidMount () {
+    $('#loading').show();
+    $('#clock').hide()
     console.log('local weather by Cy Kong')
     var context = this
 
@@ -37,6 +40,7 @@ export default class App extends React.Component {
   }
 
   componentDidUpdate() {
+    
     var context = this
      var url = 'http://api.openweathermap.org/data/2.5/weather?&lat=' + context.state.lat + '&lon='+ context.state.lon + '&units=imperial'
     var apiKey = '&appid=a18b64322a86613b665036b8cf660893'
@@ -51,19 +55,23 @@ export default class App extends React.Component {
       var currentTempLow = wd.main.temp_min;
       var currentWeatherID = wd.weather[0].id
       var temp = wd.main.temp;
+      $('#loading').hide();
+      $('#clock').show();
+      $('#title').html('Weather or Not')
       $('#currentLocation').html(currentLocation);
       $('#currentTemp').html(currentTemp);
       $('#currentWeather').html(currentWeather);
       $('#currentTempHigh').html(currentTempHigh);
       $('#currentTempLow').html(currentTempLow);
       
-      if(temp < 58) {
+      if(temp <= 58.9) {
         //change background color to blue
-      $('#container').css('background','#3cadc3')
+        console.log('changing background')
+      $('#container').css('background','rgba(60, 173, 195, 1')
       } else if(temp > 59 && wd.main.temp < 70) {
-        $('#container').css('background','#b79a38')
+        $('#container').css('background','rgba(183, 154, 56, 1)')
       } else if (temp > 71) {
-        $('#container').css("background",'#c23838')
+        $('#container').css('background','rgba(194, 56, 56, 1)')
       }
 
        var weatherID ={
@@ -96,12 +104,13 @@ export default class App extends React.Component {
     return (
       <div>
         <div id="container">
-          <h2 className="center-text content-title">WeatherLoc</h2>
-          <h2 className="center-text content-title" id="currentLocation">Get Current Weather</h2>
+          
+          <h3 className="center-text content-title" id="title"></h3>
+          <h3 className="center-text content-title" id="currentLocation"></h3>
           <div className="content-body">
-            <Clock />
-            <p className="center-text" id="currentTemp">Getting Current Weather</p>
-            <div className="center-text" id="currentWeather"></div>
+            <Clock id="clock"/>
+            <h4 className="center-text" id="currentTemp"></h4>
+            <h4 className="center-text" id="currentWeather"><img id="loading" src="./public/139.gif" /></h4>
           </div>
         </div>
       </div>

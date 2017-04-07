@@ -1,5 +1,6 @@
 body {
-  background-image: url("./public/bg.jpg")
+  background-image: url("./public/bg.jpg");
+  font-family: "Lobster", cursive;
 }
 
 #header {
@@ -31,7 +32,7 @@ body {
 }
 
 #container {
-  background: #454242;
+  background:rgba(0, 0, 0, 0);
   display: block;
   width: 40%;
   margin: 48px auto;

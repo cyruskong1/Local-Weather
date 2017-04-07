@@ -19838,6 +19838,8 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      (0, _jquery2.default)('#loading').show();
+      (0, _jquery2.default)('#clock').hide();
       console.log('local weather by Cy Kong');
       var context = this;
 
@@ -19862,6 +19864,7 @@ var App = function (_React$Component) {
   }, {
     key: 'componentDidUpdate',
     value: function componentDidUpdate() {
+
       var context = this;
       var url = 'http://api.openweathermap.org/data/2.5/weather?&lat=' + context.state.lat + '&lon=' + context.state.lon + '&units=imperial';
       var apiKey = '&appid=a18b64322a86613b665036b8cf660893';
@@ -19876,19 +19879,23 @@ var App = function (_React$Component) {
         var currentTempLow = wd.main.temp_min;
         var currentWeatherID = wd.weather[0].id;
         var temp = wd.main.temp;
+        (0, _jquery2.default)('#loading').hide();
+        (0, _jquery2.default)('#clock').show();
+        (0, _jquery2.default)('#title').html('Weather or Not');
         (0, _jquery2.default)('#currentLocation').html(currentLocation);
         (0, _jquery2.default)('#currentTemp').html(currentTemp);
         (0, _jquery2.default)('#currentWeather').html(currentWeather);
         (0, _jquery2.default)('#currentTempHigh').html(currentTempHigh);
         (0, _jquery2.default)('#currentTempLow').html(currentTempLow);
 
-        if (temp < 58) {
+        if (temp <= 58.9) {
           //change background color to blue
-          (0, _jquery2.default)('#container').css('background', '#3cadc3');
+          console.log('changing background');
+          (0, _jquery2.default)('#container').css('background', 'rgba(60, 173, 195, 1');
         } else if (temp > 59 && wd.main.temp < 70) {
-          (0, _jquery2.default)('#container').css('background', '#b79a38');
+          (0, _jquery2.default)('#container').css('background', 'rgba(183, 154, 56, 1)');
         } else if (temp > 71) {
-          (0, _jquery2.default)('#container').css("background", '#c23838');
+          (0, _jquery2.default)('#container').css('background', 'rgba(194, 56, 56, 1)');
         }
 
         var weatherID = {
@@ -19922,26 +19929,18 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { id: 'container' },
-          _react2.default.createElement(
-            'h2',
-            { className: 'center-text content-title' },
-            'WeatherLoc'
-          ),
-          _react2.default.createElement(
-            'h2',
-            { className: 'center-text content-title', id: 'currentLocation' },
-            'Get Current Weather'
-          ),
+          _react2.default.createElement('h3', { className: 'center-text content-title', id: 'title' }),
+          _react2.default.createElement('h3', { className: 'center-text content-title', id: 'currentLocation' }),
           _react2.default.createElement(
             'div',
             { className: 'content-body' },
-            _react2.default.createElement(_clock2.default, null),
+            _react2.default.createElement(_clock2.default, { id: 'clock' }),
+            _react2.default.createElement('h4', { className: 'center-text', id: 'currentTemp' }),
             _react2.default.createElement(
-              'p',
-              { className: 'center-text', id: 'currentTemp' },
-              'Getting Current Weather'
-            ),
-            _react2.default.createElement('div', { className: 'center-text', id: 'currentWeather' })
+              'h4',
+              { className: 'center-text', id: 'currentWeather' },
+              _react2.default.createElement('img', { id: 'loading', src: './public/139.gif' })
+            )
           )
         )
       );

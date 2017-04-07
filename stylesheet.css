@@ -1,0 +1,45 @@
+body {
+  background-image: url("./public/bg.jpg")
+}
+
+#header {
+  background: #2980b9;
+  color: white;
+  padding: 0 16px;
+  display: inline-block;
+  width: 100%;
+  margin-top: 0;
+  box-shadow: 0px 2px 5px #555;
+}
+#header .left, #header .navbar, #header .right {
+  display: inline-block;
+}
+#header .left, #header .right {
+  width: 20%;
+}
+#header .navbar {
+  width: 60%;
+}
+#header .left {
+  float: left;
+}
+#header .right {
+  text-align: right;
+  float: right;
+  line-height: 80px;
+  vertical-align: bottom;
+}
+
+#container {
+  background: #454242;
+  display: block;
+  width: 40%;
+  margin: 48px auto;
+  min-height: 300px;
+  padding: 24px;
+  border-radius: 4px;
+  color: white;
+}
+#container .center-text {
+  text-align: center;
+}

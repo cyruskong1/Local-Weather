@@ -28,9 +28,8 @@ export default class App extends React.Component {
     })
 
     navigator.geolocation.getCurrentPosition(function(position) {
-      console.log('getting local position', position)
+      console.log('getting local position:')
       console.log(position.coords.latitude, position.coords.longitude)
-      console.log('inside getJSON', context)
       context.setState({
         lat:position.coords.latitude,
         lon:position.coords.longitude
@@ -83,15 +82,23 @@ export default class App extends React.Component {
       '600':'http://openweathermap.org/img/w/13d.png', //snow
       '700':'http://openweathermap.org/img/w/50d.png' //mist
     }
-    console.log('currentWeatherID before', currentWeatherID)
-    currentWeatherID = Math.floor(currentWeatherID/100)*100
-    console.log('currentWeatherID after', currentWeatherID)
-    for(var key in weatherID) {
+    console.log('current weather ID', currentWeatherID)
+    if(currentWeatherID === 802) {
       if(currentWeatherID == key) {
-        console.log('currentWeatherID', key, weatherID[key])
         var img = document.createElement('IMG');
         img.setAttribute('src', weatherID[key]);
         document.getElementById('currentWeather').appendChild(img);
+      }
+    } else {
+      console.log('currentWeatherID before', currentWeatherID)
+      currentWeatherID = Math.floor(currentWeatherID/100)*100
+      console.log('currentWeatherID after', currentWeatherID)
+      for(var key in weatherID) {
+        if(currentWeatherID == key) {
+          var img = document.createElement('IMG');
+          img.setAttribute('src', weatherID[key]);
+          document.getElementById('currentWeather').appendChild(img);
+        }
       }
     }
 

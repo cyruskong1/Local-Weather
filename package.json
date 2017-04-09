@@ -1,23 +1,23 @@
 {
-  "name": "Local-Weather",
+  "name": "my-weather",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cyruskong1/Local-Weather.git"
+    "url": "git+https://github.com/cyruskong1/Weather-or-Not.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cyruskong1/Local-Weather/issues"
+    "url": "https://github.com/cyruskong1/Weather-or-Not/issues"
   },
-  "homepage": "https://github.com/cyruskong1/Local-Weather#readme",
+  "homepage": "https://github.com/cyruskong1/Weather-or-Not",
   "dependencies": {
     "jquery": "^3.2.1",
     "react": "^15.4.2",

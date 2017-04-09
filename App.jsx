@@ -75,8 +75,8 @@ export default class App extends React.Component {
       }
 
        var weatherID ={
-      '800':'http://openweathermap.org/img/w/11d.png', //clear sky
-      '802':'http://openweathermap.org/img/w/11d.png', //clouds
+      '800':'http://openweathermap.org/img/w/01d.png', //clear sky
+      '802':'http://openweathermap.org/img/w/02d.png', //clouds
       '900':'http://openweathermap.org/img/w/11d.png', //thunderstorm
       '500':'http://openweathermap.org/img/w/10d.png', //rain
       '200':'http://openweathermap.org/img/w/11d.png', //thunderstorm

@@ -19838,6 +19838,16 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      this.getLocation();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      this.getWeather();
+    }
+  }, {
+    key: 'getLocation',
+    value: function getLocation() {
       (0, _jquery2.default)('#loading').show();
       (0, _jquery2.default)('#clock').hide();
       console.log('local weather by Cy Kong');
@@ -19861,9 +19871,8 @@ var App = function (_React$Component) {
       });
     }
   }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-
+    key: 'getWeather',
+    value: function getWeather() {
       var context = this;
       var url = 'http://api.openweathermap.org/data/2.5/weather?&lat=' + context.state.lat + '&lon=' + context.state.lon + '&units=imperial';
       var apiKey = '&appid=a18b64322a86613b665036b8cf660893';

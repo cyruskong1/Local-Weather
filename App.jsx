@@ -15,6 +15,15 @@ export default class App extends React.Component {
   }
  
   componentDidMount () {
+    this.getLocation();
+  }
+
+  componentDidUpdate() {
+    this.getWeather();
+    
+  }
+
+  getLocation () {
     $('#loading').show();
     $('#clock').hide()
     console.log('local weather by Cy Kong')
@@ -24,8 +33,8 @@ export default class App extends React.Component {
     console.log('location data received', d);
       context.setState({
         region:d.region
-      })
-    })
+      });
+    });
 
     navigator.geolocation.getCurrentPosition(function(position) {
       console.log('getting local position:')
@@ -34,12 +43,11 @@ export default class App extends React.Component {
         lat:position.coords.latitude,
         lon:position.coords.longitude
         
-      })
+      });
     });
   }
 
-  componentDidUpdate() {
-    
+  getWeather () {
     var context = this
      var url = 'http://api.openweathermap.org/data/2.5/weather?&lat=' + context.state.lat + '&lon='+ context.state.lon + '&units=imperial'
     var apiKey = '&appid=a18b64322a86613b665036b8cf660893'
